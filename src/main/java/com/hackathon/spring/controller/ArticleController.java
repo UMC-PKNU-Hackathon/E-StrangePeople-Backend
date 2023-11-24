@@ -37,17 +37,17 @@ public class ArticleController {
         return new ResponseEntity<>(articleService.readArticles(location, season), HttpStatus.NOT_ACCEPTABLE);
     }
 
-    @GetMapping("/article/detail")
-    ResponseEntity<PostDetailResponse> get(@RequestParam Long postId){
-        
-
-        return new ResponseEntity<>(null, HttpStatus.NOT_ACCEPTABLE);
-    }
-
     @GetMapping("/search/{title}")
     ResponseEntity<?> search(@PathVariable String title){
         ArticlePreviewDtos articlePreviewDtos = articleService.search(title);
         return new ResponseEntity<>(articlePreviewDtos, HttpStatus.OK);
+    }
+    @GetMapping("/article/detail")
+    ResponseEntity<PostDetailResponse> get(@RequestParam Long introId){
+
+
+
+        return new ResponseEntity<>(articleService.getdetail(introId), HttpStatus.NOT_ACCEPTABLE);
     }
 
 

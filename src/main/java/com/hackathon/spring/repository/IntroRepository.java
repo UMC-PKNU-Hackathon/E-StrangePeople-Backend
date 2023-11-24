@@ -24,6 +24,9 @@ public interface IntroRepository extends JpaRepository<Intro, Long> {
     @Query("SELECT i FROM Intro i where i.region=:local order by i.id DESC")
     List<Intro> findBylocal(@Param("local") String local);
 
+    @Query("SELECT i FROM Intro i where i.region=:local and i.season=:season order by i.id DESC")
+    List<Intro> findByAll(@Param("local") String local, @Param("season") String season);
+
     List<Intro> findAllByTitleContaining(String title);
 
 }

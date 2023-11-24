@@ -91,6 +91,8 @@ public class SecurityConfig {
                     .and()
                 .authorizeRequests()
                     .requestMatchers("/",
+                        "/articles",
+                        "/article/**",
                         "/error",
                         "/favicon.ico",
                         "/**.png",

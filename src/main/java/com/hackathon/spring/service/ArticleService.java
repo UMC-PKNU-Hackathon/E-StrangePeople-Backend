@@ -68,6 +68,9 @@ public class ArticleService {
         else if(location.equals("NULL")&&!season.equals("NULL")){
             intros = introRepository.findByseason(season);
         }
+        else{
+            intros = introRepository.findByAll(location, season);
+        }
         List<ArticlePreviewDto> listArticlePreviewDto = new ArrayList<>();
 
         for(Intro intro : intros){
@@ -90,5 +93,59 @@ public class ArticleService {
                 .collect(Collectors.toList());
 
         return new ArticlePreviewDtos(collect);
+    }
+    public PostDetailResponse getdetail(Long introId){
+        PostDetailResponse postDetailResponse = new PostDetailResponse();
+        Intro intro = introRepository.findByIntroId(introId).get();
+        User user = intro.getUser();
+        List<RoutePost> routePost = routePostRepository.findByIntroId(introId);
+
+        List<RouteAddressResponse> routeAddressResponse = new ArrayList<>();
+
+        List<RouteAddressResponse> routeAddressResponseList = new ArrayList<>();
+
+        List<RouteDto> routeDtoList = new ArrayList<>();
+
+        for(RoutePost route : routePost){
+            RouteDto routeDto = new RouteDto();
+            RouteAddressResponse ra = new RouteAddressResponse();
+            routeDto.setRouteId(route.getId());
+            routeDto.setRouteOrder(route.getRouteOrder());
+            routeDto.setX(route.getX());
+            routeDto.setY(route.getY());
+            ra.setX(route.getX());
+            ra.setY(route.getY());
+
+            routeDto.setContent(route.getContent());
+            routeDto.setExpense(route.getExpense());
+            routeDto.setTransportation(route.getTransportation());
+            routeDto.setCreatedAt(route.getIntro().getCreateAt());
+            routeDto.setIsAuthor(false);
+            routeDtoList.add(routeDto);
+            routeAddressResponseList.add(ra);
+        }
+
+
+        RouteDtos routeDtos = new RouteDtos(routeDtoList);
+        postDetailResponse.setArticleId(introId);
+        postDetailResponse.setNickName(user.getName());
+        postDetailResponse.setTitle(intro.getTitle());
+        postDetailResponse.setIntroduce(intro.getIntroduce());
+        postDetailResponse.setThumbnail(intro.getThumnail());
+        postDetailResponse.setSeason(intro.getSeason());
+        postDetailResponse.setRegion(intro.getRegion());
+        postDetailResponse.setPeriod(intro.getPeriod());
+        postDetailResponse.setAllExpense(intro.getAllExpense());
+        postDetailResponse.setCreatedAt(intro.getCreateAt());
+        postDetailResponse.setRouteAddressResponse(routeAddressResponseList);
+        postDetailResponse.setRouteDtos(routeDtos);
+
+
+
+
+
+
+
+        return postDetailResponse;
     }
 }

@@ -16,7 +16,7 @@ public class RouteDto {
     private String x;
     private String y;
     private String content;
-    private String expense;
+    private Integer expense;
     private String transportation;
     private LocalDateTime createdAt;
     private Boolean isAuthor;

@@ -6,14 +6,16 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
 public class PostDetailResponse {
-    private Author author;
+    private String nickName;
     private Long articleId;
+    private String title;
     private String introduce;
     private String thumbnail;
     private String season;
@@ -22,7 +24,7 @@ public class PostDetailResponse {
     private Integer allExpense;
     private LocalDateTime createdAt;
 
-    private RouteAddressResponse routeAddressResponse;
+    private List<RouteAddressResponse> routeAddressResponse;
 
     private RouteDtos routeDtos;
 }
