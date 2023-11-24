@@ -1,4 +1,4 @@
-package com.project.Glog.domain;
+package com.hackathon.spring.domain;
 
 public enum  AuthProvider {
     local,
