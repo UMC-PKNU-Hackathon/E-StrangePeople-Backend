@@ -16,6 +16,13 @@ spring:
       mode: always
   jpa:
     defer-datasource-initialization: true
+    hibernate:
+      ddl-auto: create
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+
+
 
   security:
     oauth2:
@@ -26,7 +33,6 @@ spring:
             client-secret: "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"
             redirect-uri: "http://localhost:8080/oauth2/callback/google"
             scope: "email,profile"
-
 app:
   firebase-configuration-file: ./serviceAccountKey.json
   firebase-bucket: hackathon-e885a.appspot.com

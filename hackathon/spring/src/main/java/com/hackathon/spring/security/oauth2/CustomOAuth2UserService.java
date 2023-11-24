@@ -1,8 +1,10 @@
 package com.hackathon.spring.security.oauth2;
 
 import com.hackathon.spring.domain.AuthProvider;
+import com.hackathon.spring.domain.Blog;
 import com.hackathon.spring.domain.User;
 import com.hackathon.spring.exception.OAuth2AuthenticationProcessingException;
+import com.hackathon.spring.repository.BlogRepository;
 import com.hackathon.spring.repository.UserRepository;
 import com.hackathon.spring.security.UserPrincipal;
 import com.hackathon.spring.security.oauth2.user.OAuth2UserInfo;
@@ -24,6 +26,8 @@ public class CustomOAuth2UserService extends DefaultOAuth2UserService {
 
     @Autowired
     private UserRepository userRepository;
+    @Autowired
+    private BlogRepository blogRepository;
 
     //백엔드 리다이렉션 페이지에서 토큰을 받은 후 리소스에 다시 요청해서 유저 정보를 받아옴
     @Override
@@ -71,7 +75,9 @@ public class CustomOAuth2UserService extends DefaultOAuth2UserService {
         user.setName(oAuth2UserInfo.getName());
         user.setEmail(oAuth2UserInfo.getEmail());
         user.setImageUrl(oAuth2UserInfo.getImageUrl());
-        return userRepository.save(user);
+        User userResult = userRepository.save(user);
+
+        return userResult;
     }
 
     private User updateExistingUser(User existingUser, OAuth2UserInfo oAuth2UserInfo) {

@@ -23,12 +23,10 @@ public class RoutePost {
     private String address;
     @NotNull
     private String content;
-    @NotNull
-    private String image;
 
     private String transportation;
 
-    private String expense;
+    private Integer expense;
 
     @ManyToOne(fetch = FetchType.LAZY)
     private Intro intro;

@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.jetbrains.annotations.NotNull;
+import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.LocalDateTime;
@@ -33,7 +34,7 @@ public class Intro {
     private String period;
     @NotNull
     private Integer likes;
-    @NotNull
+    @CreatedDate
     private LocalDateTime createAt;
     @NotNull
     private Boolean isModify;
@@ -41,6 +42,6 @@ public class Intro {
     private Integer allExpense;
 
     @OneToOne(fetch = FetchType.LAZY)
-    private Blog blog;
+    private User user;
 
 }
