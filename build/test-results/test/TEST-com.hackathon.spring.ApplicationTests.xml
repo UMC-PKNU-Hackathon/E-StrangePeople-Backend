@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.hackathon.spring.ApplicationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-11-24T22:09:07" hostname="YEONG" time="0.247">
+  <properties/>
+  <testcase name="contextLoads()" classname="com.hackathon.spring.ApplicationTests" time="0.247"/>
+  <system-out><![CDATA[07:09:00.239 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Neither @ContextConfiguration nor @ContextHierarchy found for test class [ApplicationTests]: using SpringBootContextLoader
+07:09:00.244 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader -- Could not detect default resource locations for test class [com.hackathon.spring.ApplicationTests]: no resource found for suffixes {-context.xml, Context.groovy}.
+07:09:00.245 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.hackathon.spring.ApplicationTests]: ApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+07:09:00.269 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Using ContextCustomizers for test class [ApplicationTests]: [DisableObservabilityContextCustomizer, PropertyMappingContextCustomizer, Customizer, ExcludeFilterContextCustomizer, DuplicateJsonObjectContextCustomizer, MockitoContextCustomizer, TestRestTemplateContextCustomizer]
+07:09:00.333 [Test worker] DEBUG org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider -- Identified candidate component class: file [C:\Users\yiyop\OneDrive\문서\카카오톡 받은 파일\spring\spring\build\classes\java\main\com\hackathon\spring\Application.class]
+07:09:00.333 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.hackathon.spring.Application for test class com.hackathon.spring.ApplicationTests
+07:09:00.453 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Using TestExecutionListeners for test class [ApplicationTests]: [ServletTestExecutionListener, DirtiesContextBeforeModesTestExecutionListener, ApplicationEventsTestExecutionListener, MockitoTestExecutionListener, DependencyInjectionTestExecutionListener, DirtiesContextTestExecutionListener, TransactionalTestExecutionListener, SqlScriptsTestExecutionListener, WithSecurityContextTestExecutionListener, EventPublishingTestExecutionListener, ReactorContextTestExecutionListener, RestDocsTestExecutionListener, MockRestServiceServerResetTestExecutionListener, MockMvcPrintOnlyOnFailureTestExecutionListener, WebDriverTestExecutionListener, MockWebServiceServerTestExecutionListener, ResetMocksTestExecutionListener]
+07:09:00.453 [Test worker] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener -- Before test class: class [ApplicationTests], class annotated with @DirtiesContext [false] with mode [null]
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.0.5)
+
+2023-11-25T07:09:00.793+09:00  INFO 3084 --- [    Test worker] com.hackathon.spring.ApplicationTests    : Starting ApplicationTests using Java 17.0.6 with PID 3084 (started by yiyop in C:\Users\yiyop\OneDrive\문서\카카오톡 받은 파일\spring\spring)
+2023-11-25T07:09:00.795+09:00  INFO 3084 --- [    Test worker] com.hackathon.spring.ApplicationTests    : No active profile set, falling back to 1 default profile: "default"
+2023-11-25T07:09:01.697+09:00  INFO 3084 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-11-25T07:09:01.782+09:00  INFO 3084 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 76 ms. Found 4 JPA repository interfaces.
+2023-11-25T07:09:02.358+09:00  INFO 3084 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-11-25T07:09:02.418+09:00  INFO 3084 --- [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.1.7.Final
+2023-11-25T07:09:02.767+09:00  INFO 3084 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-11-25T07:09:03.264+09:00  INFO 3084 --- [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@56f72909
+2023-11-25T07:09:03.267+09:00  INFO 3084 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-11-25T07:09:03.344+09:00  INFO 3084 --- [    Test worker] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2023-11-25T07:09:04.598+09:00  INFO 3084 --- [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-11-25T07:09:04.617+09:00  INFO 3084 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-11-25T07:09:06.066+09:00  WARN 3084 --- [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-11-25T07:09:06.533+09:00  INFO 3084 --- [    Test worker] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@2e5337d8, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@ab40f46, org.springframework.security.web.context.SecurityContextHolderFilter@591e27f1, org.springframework.security.web.header.HeaderWriterFilter@5753e0c4, org.springframework.web.filter.CorsFilter@13ac7281, org.springframework.security.web.authentication.logout.LogoutFilter@75044df3, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@930b6f9, org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter@15363eba, com.hackathon.spring.security.TokenAuthenticationFilter@5e9c6d8a, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5862a07b, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4c0e09b5, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7740028a, org.springframework.security.web.session.SessionManagementFilter@43ee585f, org.springframework.security.web.access.ExceptionTranslationFilter@30f74965, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@12b9d405]
+2023-11-25T07:09:07.061+09:00  INFO 3084 --- [    Test worker] com.hackathon.spring.ApplicationTests    : Started ApplicationTests in 6.56 seconds (process running for 7.822)
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

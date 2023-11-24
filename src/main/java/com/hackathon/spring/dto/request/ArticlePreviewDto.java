@@ -1,0 +1,29 @@
+package com.hackathon.spring.dto.request;
+
+import com.hackathon.spring.domain.Intro;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import java.time.LocalDateTime;
+
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
+public class ArticlePreviewDto {
+    private String title;
+    private String thumbnail;
+    private String introduction;
+    private LocalDateTime localdate;
+
+    public static ArticlePreviewDto of(Intro intro){
+        return new ArticlePreviewDto(
+                intro.getTitle(),
+                intro.getThumnail(),
+                intro.getIntroduce(),
+                intro.getCreateAt()
+        );
+    }
+}

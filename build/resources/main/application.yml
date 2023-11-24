@@ -1,0 +1,58 @@
+## MySQL ?????? ??
+#spring.datasource.url=jdbc:mysql://nanchoidb.cnzxc5x3qe0b.ap-northeast-2.rds.amazonaws.com:3306/MVP_IA
+#spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+#spring.datasource.username=admin
+#spring.datasource.password=Choi100~
+#spring.jpa.database-platform=org.hibernate.dialect.MySQLDialect
+
+spring:
+  datasource:
+    url: jdbc:mysql://nanchoidb.cnzxc5x3qe0b.ap-northeast-2.rds.amazonaws.com:3306/saerok
+    username: admin
+    password: Choi100~
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  sql:
+    init:
+      mode: always
+  jpa:
+    defer-datasource-initialization: true
+    hibernate:
+      ddl-auto: update
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+
+
+
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: "1002267759557-jj5s1f10i0jmf357p3id3qgapl1l1pip.apps.googleusercontent.com"
+            client-secret: "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"
+            redirect-uri: "http://localhost:8080/oauth2/callback/google"
+            scope: "email,profile"
+app:
+  firebase-configuration-file: ./serviceAccountKey.json
+  firebase-bucket: hackathon-e885a.appspot.com
+  auth:
+    tokenSecret: "04ca023b39512e46d0c2cf4b48d5aac61d34302994c87ed4eff225dcf3b0a218739f3897051a057f9b846a69ea2927a587044164b7bae5e1306219d50b588cb1"
+    tokenExpirationMsec: 864000000
+  cors:
+    allowedOrigins: "http://localhost:3000,http://localhost:8080"
+  oauth2:
+    authorizedRedirectUris: "http://localhost:3000/oauth2/redirect,myandroidapp://oauth2/redirect,myiosapp://oauth2/redirect"
+
+#AWS
+cloud:
+  aws:
+    credentials:
+      accessKey: AKIAQ6IOQ7UMJTYAADHO
+      secretKey: 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
+    s3:
+      bucket: elasticbeanstalk-us-east-1-064991853848
+    region:
+      static: us-east-1
+    stack:
+      auto: false
