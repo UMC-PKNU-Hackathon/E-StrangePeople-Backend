@@ -1,5 +1,6 @@
 package com.hackathon.spring.controller;
 
+
 import com.hackathon.spring.service.FirebaseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -20,11 +21,9 @@ public class FirebaseController {
      * @return success message on uploading the file
      * @throws Exception
      */
-    @PostMapping("/upload-image")
-    public ResponseEntity<String> uploadImage(@RequestParam("file") MultipartFile file) throws Exception {
+    @PostMapping("/Image")
+    public ResponseEntity<Object> uploadImage(@RequestParam("file") MultipartFile file) throws Exception {
         return firebaseService.uploadFile(file);
     }
-
-
 
 }

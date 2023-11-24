@@ -1,4 +1,5 @@
 package com.hackathon.spring.service;
+
 import com.google.auth.oauth2.GoogleCredentials;
 import com.google.cloud.storage.BlobId;
 import com.google.cloud.storage.BlobInfo;
@@ -16,6 +17,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Date;
+import java.util.Map;
 import java.util.Objects;
 
 import static com.hackathon.spring.common.Constants.FIREBASE_BUCKET;
@@ -24,9 +26,8 @@ import static com.hackathon.spring.common.Constants.FIREBASE_SDK_JSON;
 
 @Service
 public class FirebaseService {
-    public ResponseEntity<String> uploadFile(MultipartFile multipartFile) throws IOException {
+    public ResponseEntity<Object> uploadFile(MultipartFile multipartFile) throws IOException {
         String objectName = generateFileName(multipartFile);
-
         FileInputStream serviceAccount = new FileInputStream(FIREBASE_SDK_JSON);
         File file = convertMultiPartToFile(multipartFile);
         Path filePath = file.toPath();
@@ -37,7 +38,16 @@ public class FirebaseService {
 
         storage.create(blobInfo, Files.readAllBytes(filePath));
 
-        return ResponseEntity.status(HttpStatus.CREATED).body("file uploaded successfully");
+        // Extracting the image URL
+        String imageUrl = "https://firebasestorage.googleapis.com/v0/b/" + FIREBASE_BUCKET + "/o/" + objectName + "?alt=media";
+
+        // Constructing JSON response
+        return ResponseEntity.status(HttpStatus.CREATED).body(
+                Map.of(
+                        "status", "Success Upload",
+                        "description", imageUrl
+                )
+        );
     }
 
     private File convertMultiPartToFile(MultipartFile file) throws IOException {
